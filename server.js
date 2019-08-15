@@ -26,10 +26,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
 
 //listener
 app.listen(PORT, () => {
