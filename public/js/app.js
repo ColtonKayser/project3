@@ -22,10 +22,10 @@ app.controller('MainController', ['$http', function($http) {
   }// end get parks func
 
   // === PARTALS === //
-  // this.includePath = 'index.html'
-  // this.changeInclude = (path) => {
-  //   this.includePath = '../partials/parks.html';
-  //   console.log('clicked!!!!!');
-  // }
+  this.includePath = 'partials/parks.html'
+  this.changeInclude = (path) => {
+    this.includePath = 'partials/' + path + '.html';
+    console.log('clicked!!!!!');
+  }
 
 }]);
