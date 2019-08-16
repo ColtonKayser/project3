@@ -10,21 +10,21 @@
     <div class="parks">
     <!-- have to loop through response data -->
     <form ng-submit="ctrl.getParks()">
-      <input type="text" ng-model="ctrl.stateCode" placeholder="ex: NY"/>
+      <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
       <input type="submit" value="Submit State"/>
 
     </form>
-    <ul>
-      <li ng-repeat="parks in ctrl.parksArray">
-        <!-- ng-if="ctrl.parksArray" -->
-
-      </li>
-    </ul>
+    <!-- <ul> -->
+      <div ng-repeat="park in ctrl.parks">
+        {{park.fullName}}
+      </div>
+      <!-- </li>
+    </ul> -->
     <!-- if response.designation === national parks -->
     <!-- show us the parks! -->
     </div>
-    
-    
+
+
 
   </body>
 </html>
