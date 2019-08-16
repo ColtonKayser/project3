@@ -7,27 +7,25 @@ app.controller('MainController', ['$http', function($http) {
   this.state = '';
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
-  // this.baseURL = 'http://developer.nps.gov/api/v1/';
-  // this.parks = 'parks?';
-  // this.limit = 'limit=150&';
-  // this.state = 'stateCode=';
-  // this.stateCode = '';
-  // this.parksCode = 'parkCode=';//we may not need this! not including
-  // this.query = ''; // not including for now
-  // this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
-  // this.searchURL = this.baseURL + this.parks + this.state + this.stateCode + this.limit + this.apiKey;
-  // console.log(this.stateCode)
-  // console.log(this.searchURL);
 
+
+  // === GET PARKS === //
   this.getParks = () => {
     console.log('before');
     $http({
       method: 'GET',
       url: this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey
     }).then(response => {
+        console.log('after');
         this.parks = response.data.data;
     })
-  }
+  }// end get parks func
 
+  // === PARTALS === //
+  // this.includePath = 'index.html'
+  // this.changeInclude = (path) => {
+  //   this.includePath = '../partials/parks.html';
+  //   console.log('clicked!!!!!');
+  // }
 
 }]);
