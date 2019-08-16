@@ -26,12 +26,8 @@ app.controller('MainController', ['$http', function($http) {
       url: this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey
     }).then(response => {
         this.parks = response.data.data;
-      
     })
-  }//end get parks func
-  // && parksArray[i].designation === 'National Park'
-}]);
+  }
 
-// https://developer.nps.gov/api/v1/parks?&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb
-//
-// https://developer.nps.gov/api/v1parks?&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb
+
+}]);
