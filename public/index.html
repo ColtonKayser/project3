@@ -16,9 +16,13 @@
     </form>
     <!-- DISPLAY PARK NAMES -->
     <div ng-repeat="park in ctrl.parksData">
+
         <h4 ng-click="ctrl.togglePark()">
+
         {{park.fullName}}
+
         </h4>
+        <!-- show information -->
         <div ng-show="ctrl.showMe">
           <h5>hello!</h5>
         </div>
