@@ -4,7 +4,7 @@ app.controller('MainController', ['$http', function($http) {
   // === VARIABLES === //
   const controller = this;
   //vars for API call
-  this.baseURL = 'http://developer.nps.gov/api/v1/';
+  this.baseURL = 'https://developer.nps.gov/api/v1/';
   this.parks = 'parks?';
   this.stateCode = 'stateCode=';
   this.state = '';
