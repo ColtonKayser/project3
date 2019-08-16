@@ -19,7 +19,7 @@ app.controller('MainController', ['$http', function($http) {
         console.log('after');
         console.log(response.data.data);
         this.parksData = response.data.data;
-        // console.log(this.parks);
+        // console.log(this.parksData);
     })
   }// end get parks func
 
