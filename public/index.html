@@ -14,7 +14,11 @@
       <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
       <input type="submit" value="Submit State"/>
     </form>
-    <div ng-include="'partials/parks.html'"></div>
+    <div ng-repeat="park in ctrl.parksData">
+        <h4>
+        {{park.fullName}}
+        </h4>
+
     </div>
   </body>
 </html>
