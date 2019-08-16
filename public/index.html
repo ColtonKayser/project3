@@ -7,6 +7,18 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller="MainController as ctrl">
-    {{2 + 2}}
+    <h1>parks! woo</h1>
+    <div class="parks">
+    <!-- have to loop through response data -->
+    <form ng-submit="ctrl.getParks()">
+      <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
+      <input type="submit" value="Submit State"/>
+    </form>
+    <div ng-repeat="park in ctrl.parksData">
+        <h4>
+        {{park.fullName}}
+        </h4>
+
+    </div>
   </body>
 </html>
