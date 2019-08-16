@@ -15,17 +15,28 @@
       <input type="submit" value="FIND PARKS"/>
     </form>
     <!-- DISPLAY PARK NAMES -->
-    <div ng-repeat="park in ctrl.parksData">
+    <ul>
+    <li ng-repeat="park in ctrl.parksData">
 
         <h4 ng-click="ctrl.togglePark()">
-
         {{park.fullName}}
-
+        <a
+          href="#"
+          ng-if="$index !== ctrl.indexOfParkToShow"
+          ng-click="ctrl.indexOfParkToShow = $index">
+            Show This Park's Info
+        </a>
         </h4>
-        <!-- show information -->
-        <div ng-show="ctrl.showMe">
-          <h5>hello!</h5>
-        </div>
-    </div>
+        <div 
+        ng-if="$index === ctrl.indexOfParkToShow"
+        ng-show="ctrl.showInfo">
+        {{park.designation}} <br/>
+        {{park.description}} <br/>
+        {{park.url}} <br/>
+        <button ng-click="ctrl.toggleInfo()">Hide Info</button>
+       </div>
+     
+      </li>
+  </ul> 
   </body>
 </html>
