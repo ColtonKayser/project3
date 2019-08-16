@@ -26,9 +26,15 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// const parksController = require('./controllers/parks.js');
+// app.use('/parks', parksController);
+
+
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
+
+
 
 //listener
 app.listen(PORT, () => {

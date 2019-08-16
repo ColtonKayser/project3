@@ -7,18 +7,38 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller="MainController as ctrl">
-    <h1>parks! woo</h1>
-    <div class="parks">
+    <h1>National Parks</h1>
+    <h5>CHOOSE A STATE</h5>
     <!-- have to loop through response data -->
     <form ng-submit="ctrl.getParks()">
       <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
-      <input type="submit" value="Submit State"/>
+      <input type="submit" value="FIND PARKS"/>
     </form>
-    <div ng-repeat="park in ctrl.parksData">
-        <h4>
-        {{park.fullName}}
-        </h4>
+    <!-- DISPLAY PARK NAMES -->
+    <ul>
+    <li ng-repeat="park in ctrl.parksData">
 
-    </div>
+        <h4 ng-click="ctrl.togglePark()">
+        {{park.fullName}}
+        <a
+          href="#"
+          ng-if="$index !== ctrl.indexOfParkToShow"
+          ng-click="ctrl.indexOfParkToShow = $index">
+            Show This Park's Info
+        </a>
+        </h4>
+        <div 
+        ng-if="$index === ctrl.indexOfParkToShow"
+        ng-show="ctrl.showInfo">
+        {{park.designation}} <br/>
+        {{park.description}} <br/>
+        {{park.url}} <br/>
+        <!-- <button ng-click="ctrl.toggleInfo()"
+        ng-show="ctrl.showInfo"
+        >Hide Info</button> -->
+       </div>
+     
+      </li>
+  </ul> 
   </body>
 </html>
