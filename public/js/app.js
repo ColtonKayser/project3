@@ -11,7 +11,7 @@ app.controller('MainController', ['$http', function($http) {
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
   //for toggling:
-  this.showMe = false;
+  this.showInfo = true;
   this.indexOfParkToShow = null;
 
   // === GET PARKS === //
@@ -27,8 +27,9 @@ app.controller('MainController', ['$http', function($http) {
   }// end get parks func
 
   // === TOGGLE === // hold on for visited/not visited
-  this.togglePark = () => {
-    this.showMe = !this.showMe
-  }; // end toggle func
+  this.toggleInfo = () => {
+    this.showInfo = !this.showInfo;
+  }
+  // }; // end toggle func
 
 }]);
