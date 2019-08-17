@@ -77,27 +77,27 @@ app.controller('MainController', ['$http', function($http) {
 
 
   //edit user park bug needs fixin'
-  // this.editUserPark = function(userPark) {
-  //   $http({
-  //     method: 'PUT',
-  //     url: '/parks/' + userPark._id,
-  //     data: {
-  //       this.name: this.updatedName,
-  //       this.designation: this.updatedDesignation,
-  //       this.description: this.updatedDescription,
-  //       this.url: this.updatedUrl,
-  //       this.visited: this.updatedVisited,
-  //       this.notes: this.updatedNotes
-  //     }
-  //   }).then(
-  //     function(response){
-  //       controller.getUserParks();
-  //     },
-  //     function(error){
-  //       console.log('error');
-  //     }
-  //   )
-  // }
+  this.editUserPark = function(userPark) {
+    $http({
+      method: 'PUT',
+      url: '/parks/' + userPark._id,
+      data: {
+        name: this.updatedName,
+        designation: this.updatedDesignation,
+        description: this.updatedDescription,
+        url: this.updatedUrl,
+        visited: this.updatedVisited,
+        notes: this.updatedNotes
+      }
+    }).then(
+      function(response){
+        controller.getUserParks();
+      },
+      function(error){
+        console.log('error');
+      }
+    )
+  }
 
 
   this.getUserParks();
