@@ -42,7 +42,7 @@
   </ul>
   <!-- Note form -->
   <Park Form>
-  <form ng-submit="ctrl.createPark()">
+  <form ng-submit="ctrl.createUserPark()">
     <input type="text" ng-model="ctrl.createForm.name" placeholder="Name" />
     <input type="text" ng-model="ctrl.createForm.designation" placeholder="Designation"/>
     <input type="text" ng-model="ctrl.createForm.description" placeholder="Description"/>
@@ -51,5 +51,28 @@
     <input type="text" ng-model="ctrl.createForm.notes" placeholder="Notes" />
     <input type="submit" value="Create Park" />
   </form>
+  <h1>User Parks</h1>
+  <ul>
+    <li ng-repeat="userPark in ctrl.userParks">
+      Name: {{userPark.name}},
+      Designation: {{userPark.designation}},
+      Description: {{userPark.description}},
+      Website: <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>,
+      Visited: {{userPark.visited}},
+      Additional Notes: {{userPark.notes}}
+      <!-- DELETE -->
+      <button ng-click="ctrl.deleteUserPark(userPark)">Delete</button>
+      <!-- EDIT bug NEEDS FIXING -->
+      <!-- <form ng-submit="ctrl.editUserPark(userPark)">
+        <input type="text" ng-model="ctrl.updatedName" placeholder="Name"/>
+        <input type="text" ng-model="ctrl.updatedDesignation" placeholder="Designation"/>
+        <input type="text" ng-model="ctrl.updatedDescription" placeholder="Description">
+        <input type="text" ng-model="ctrl.updatedUrl" placeholder="URL"/>
+        Visited: <input type="checkbox" ng-model="ctrl.updatedVisited"/>
+        <input type="text" ng-model="ctrl.updatedNotes" placeholder="Notes">
+        <input type="submit" name="" value="Update Park">
+      </form> -->
+    </li>
+  </ul>
   </body>
 </html>

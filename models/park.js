@@ -6,7 +6,7 @@ const parkSchema = new mongoose.Schema({
     description: String,
     url: String,
     visited: Boolean,
-    notes: String
+    notes: String,
 });
 
 const Parks = mongoose.model('Park', parkSchema)
