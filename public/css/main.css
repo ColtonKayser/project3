@@ -1,0 +1,101 @@
+body{
+  margin-top: 0;
+}
+/* == HEADER == */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: ghostwhite;
+  height: 75px;
+}
+h1 {
+  margin: 0;
+  text-transform: uppercase;
+}
+/* == NAVIGATION == */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: gold;
+}
+nav a {
+  padding: 5px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+/* == FIND PARKS == */
+.find-park-by-state {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+h6 {
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.find-park-by-state input {
+margin: 0 10px 0 10px;
+}
+hr {
+  margin: 0;
+}
+/* == SEE PARKS == */
+.apiParkList {
+  margin-top: 10px;
+}
+li {
+  list-style-type: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px gray;
+  padding: 8px;
+}
+.park {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h5 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.apiParkList a {
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+}
+.show-info{
+  justify-content: left;
+  padding: 0 5px;
+}
+.show-info-h6 {
+  font-weight: 600;
+  text-align: left;
+}
+.save-btn {
+  align-self: center;
+  width: 20%;
+  margin: 0;
+}
+/* == CREATE PARKS == */
+.create-park-btn{
+  margin: 15px 0;
+}
+/* == SAVED PARKS == */
+.userPark h5{
+  text-align: left;
+  font-weight: 600;
+  padding: 10px;
+}
+.userPark h6, a{
+  text-align: left;
+  text-transform: none;
+  margin: 0 10px;;
+}

@@ -6,8 +6,8 @@ const parkSchema = new mongoose.Schema({
     description: String,
     url: String,
     visited: Boolean,
-    notes: String
+    notes: String,
 });
 
-const Park = mongoose.model('Park', parkSchema)
-module.exports = Park;
+const Parks = mongoose.model('Park', parkSchema)
+module.exports = Parks;
