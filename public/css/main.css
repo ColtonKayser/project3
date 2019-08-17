@@ -34,7 +34,7 @@ nav a {
   justify-content: center;
   align-items: center;
 }
-.find-park-by-state h6 {
+h6 {
   text-align: center;
   margin-top: 20px;
   text-transform: uppercase;
@@ -73,6 +73,11 @@ h5 {
 }
 .show-info{
   justify-content: left;
+  padding: 0 5px;
+}
+.show-info-h6 {
+  font-weight: 600;
+  text-align: left;
 }
 .save-btn {
   align-self: center;

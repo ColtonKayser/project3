@@ -51,13 +51,12 @@
           <br/>
           <!-- save this park -->
           <button class="button-primary save-btn" ng-click="ctrl.addToUserPark(park)">Save</button>
-          <!-- </h6> -->
           <div
             ng-if="$index === ctrl.indexOfParkToShow"
             ng-show="ctrl.showInfo"
             class="show-info"
           >
-            <h6>{{park.designation}}</h6>
+            <h6 class="show-info-h6">{{park.designation}}</h6>
             <p>{{park.description}}</p>
             <a href="{{park.url}}">{{park.url}}</a>
             <!-- <button ng-click="ctrl.toggleInfo()"
@@ -66,21 +65,35 @@
           </div>
         </li>
       </ul>
-      <hr>
+    <hr>
     <!-- CREATE PARK -->
     <h6>create park</h6>
-    <Park Form>
+    <!-- form -->
     <form ng-submit="ctrl.createUserPark()">
-      <input type="text" ng-model="ctrl.createForm.name" placeholder="Name" />
-      <input type="text" ng-model="ctrl.createForm.designation" placeholder="Designation"/>
-      <input type="text" ng-model="ctrl.createForm.description" placeholder="Description"/>
+      <!-- name -->
+      <label for="ctrl.name">Park Name</label>
+      <input type="text" ng-model="ctrl.createForm.name" />
+      <!-- designation -->
+      <label for="ctrl.designation">Park Designation</label>
+      <input type="text" ng-model="ctrl.createForm.designation"/>
+      <!-- description -->
+      <label for="ctrl.description">Description</label>
+      <input type="text" ng-model="ctrl.createForm.description"/>
+      <!-- url -->
+      <label for="ctrl.url">Park Website</label>
       <input type="text" ng-model="ctrl.createForm.url" placeholder="Park URL"/>
-      Visited: <input type="checkbox" ng-model="ctrl.createForm.visited"/>
-      <input type="text" ng-model="ctrl.createForm.notes" placeholder="Notes" />
-      <input type="submit" value="Create Park" />
+      <!-- visited -->
+      <label for="ctrl.visited">Visited</label> <input type="checkbox" ng-model="ctrl.createForm.visited"/>
+      <!-- notes -->
+      <label for="ctrl.notes">Notes</label>
+      <input type="text" ng-model="ctrl.createForm.notes"/>
+      <br/>
+      <input class="button-primary" type="submit" value="Create Park" />
     </form>
+
+    <hr>
     <!-- User Saved Parks -->
-    <h1>User Parks</h1>
+    <h6>User Parks</h6>
     <ul class="userParkList">
       <li class="userPark" ng-repeat="userPark in ctrl.userParks">
         Name: {{userPark.name}} <br/>
