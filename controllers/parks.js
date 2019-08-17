@@ -29,5 +29,18 @@ router.put('/:id', (req, res) => {
     res.json(updatedPark);
   });
 });
+// update park from api
+router.put('/addpark/add', (req, res) => {
+  const park = req.body.park;
+  console.log(JSON.stringify(req.body))
+  Parks.create({
+    name: park.name,
+    designation: park.designation,
+    description: park.description,
+    url: park.url,
+    visited: park.visited,
+    notes: park.notes
+  })
+})
 
 module.exports = router;
