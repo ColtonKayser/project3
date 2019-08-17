@@ -31,37 +31,44 @@
           <input class="button button-primary" type="submit" value="FIND PARKS"/>
         </form>
       </div>
-      <hr>
       <!-- DISPLAY PARK NAMES -->
-      <h6>create park</h6>
       <ul class="apiParkList">
-      <li class="park" ng-repeat="park in ctrl.parksData">
-
-          <h4 ng-click="ctrl.togglePark()">
-          {{park.fullName}}
+        <li class="park" ng-repeat="park in ctrl.parksData">
+          <!-- park name -->
+          <h5
+            ng-click="ctrl.togglePark()">
+            {{park.fullName}}
+          </h5>
+          <!-- <br/> -->
+          <!-- show park info a tag -->
           <a
             href="#"
             ng-if="$index !== ctrl.indexOfParkToShow"
-            ng-click="ctrl.indexOfParkToShow = $index">
-              Show This Park's Info
+            ng-click="ctrl.indexOfParkToShow = $index"
+            >
+            Show This Park's Info
           </a>
-          <!-- Add Park to User's Saved Parks -->
-          <button ng-click="ctrl.addToUserPark(park)">Save Park</button>
-          </h4>
+          <br/>
+          <!-- save this park -->
+          <button class="button-primary save-btn" ng-click="ctrl.addToUserPark(park)">Save</button>
+          <!-- </h6> -->
           <div
-          ng-if="$index === ctrl.indexOfParkToShow"
-          ng-show="ctrl.showInfo">
-          {{park.designation}} <br/>
-          {{park.description}} <br/>
-          {{park.url}} <br/>
-          <!-- <button ng-click="ctrl.toggleInfo()"
-          ng-show="ctrl.showInfo"
-          >Hide Info</button> -->
-         </div>
-
+            ng-if="$index === ctrl.indexOfParkToShow"
+            ng-show="ctrl.showInfo"
+            class="show-info"
+          >
+            <h6>{{park.designation}}</h6>
+            <p>{{park.description}}</p>
+            <a href="{{park.url}}">{{park.url}}</a>
+            <!-- <button ng-click="ctrl.toggleInfo()"
+            ng-show="ctrl.showInfo"
+            >Hide Info</button> -->
+          </div>
         </li>
-    </ul>
+      </ul>
+      <hr>
     <!-- CREATE PARK -->
+    <h6>create park</h6>
     <Park Form>
     <form ng-submit="ctrl.createUserPark()">
       <input type="text" ng-model="ctrl.createForm.name" placeholder="Name" />
