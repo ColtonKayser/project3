@@ -102,7 +102,7 @@
         <h6>Visited: {{userPark.visited}}</h6>
         <h6> Additional notes: {{userPark.notes}}</h6>
         <!-- EDIT NEEDS FIXING -->
-        <a ng-if="$index !== ctrl.indexOfEditFormToShow"
+        <ng-if="$index !== ctrl.indexOfEditFormToShow"
           href="#"
           ng-click="ctrl.indexOfEditFormToShow = $index">
             Edit
