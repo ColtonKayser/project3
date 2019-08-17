@@ -48,6 +48,8 @@ hr {
 /* == SEE PARKS == */
 .apiParkList {
   margin-top: 10px;
+  height: 300px;
+  overflow: auto;
 }
 li {
   list-style-type: none;
@@ -78,17 +80,23 @@ h5 {
 .show-info-h6 {
   font-weight: 600;
   text-align: left;
+  margin-top: -20px;
 }
 .save-btn {
   align-self: center;
   width: 20%;
   margin: 0;
 }
+
+/* .ng-binding {
+  margin-bottom: -5px;
+} */
 /* == CREATE PARKS == */
 .create-park-btn{
   margin: 15px 0;
 }
 /* == SAVED PARKS == */
+
 .userPark h5{
   text-align: left;
   font-weight: 600;
