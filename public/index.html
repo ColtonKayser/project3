@@ -15,8 +15,8 @@
       <input type="submit" value="FIND PARKS"/>
     </form>
     <!-- DISPLAY PARK NAMES -->
-    <ul>
-    <li ng-repeat="park in ctrl.parksData">
+    <ul class="apiParkList">
+    <li class="park" ng-repeat="park in ctrl.parksData">
 
         <h4 ng-click="ctrl.togglePark()">
         {{park.fullName}}
@@ -26,6 +26,8 @@
           ng-click="ctrl.indexOfParkToShow = $index">
             Show This Park's Info
         </a>
+        <!-- Add Park to User's Saved Parks -->
+        <button ng-click="ctrl.addToUserPark(park)">Save Park</button>
         </h4>
         <div
         ng-if="$index === ctrl.indexOfParkToShow"
@@ -51,15 +53,16 @@
     <input type="text" ng-model="ctrl.createForm.notes" placeholder="Notes" />
     <input type="submit" value="Create Park" />
   </form>
+  <!-- User Saved Parks -->
   <h1>User Parks</h1>
-  <ul>
-    <li ng-repeat="userPark in ctrl.userParks">
-      Name: {{userPark.name}},
-      Designation: {{userPark.designation}},
-      Description: {{userPark.description}},
-      Website: <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>,
-      Visited: {{userPark.visited}},
-      Additional Notes: {{userPark.notes}}
+  <ul class="userParkList">
+    <li class="userPark" ng-repeat="userPark in ctrl.userParks">
+      Name: {{userPark.name}} <br/>
+      Designation: {{userPark.designation}} <br/>
+      Description: {{userPark.description}} <br/>
+      Website: <span><a href="{{userPark.url}}">{{userPark.url}}</a></span> <br/>
+      Visited: {{userPark.visited}} <br/>
+      Additional Notes: {{userPark.notes}} <br/>
       <!-- DELETE -->
       <button ng-click="ctrl.deleteUserPark(userPark)">Delete</button>
       <!-- EDIT bug NEEDS FIXING -->

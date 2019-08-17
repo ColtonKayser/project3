@@ -32,7 +32,13 @@ app.controller('MainController', ['$http', function($http) {
     this.showInfo = !this.showInfo;
   }
   // }; // end toggle func
-
+  // add park to userParks
+  this.addToUserPark = function(park){
+    // this adds park bu doesnt remove or allow for update
+    let index = this.parksData.indexOf(park)
+    this.userParks.push(park)
+    this.parksData.splice(index, 1)
+  }
   //Create User Park
   this.createUserPark = function(){
     $http({
@@ -98,7 +104,6 @@ app.controller('MainController', ['$http', function($http) {
       }
     )
   }
-
 
   this.getUserParks();
 }]);
