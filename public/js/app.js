@@ -3,6 +3,7 @@ const app = angular.module('ParkApp', []);
 app.controller('MainController', ['$http', function($http) {
   // === VARIABLES === //
   const controller = this;
+  this.createForm = {};
   //vars for API call
   this.baseURL = 'https://developer.nps.gov/api/v1/';
   this.parks = 'parks?';
@@ -15,7 +16,7 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfParkToShow = null;
 
   // === GET PARKS === //
-  this.getParks = () => {
+  this.getParks = function() {
     console.log('before');
     $http({
       method: 'GET',
@@ -31,5 +32,18 @@ app.controller('MainController', ['$http', function($http) {
     this.showInfo = !this.showInfo;
   }
   // }; // end toggle func
+
+  //Create Park
+  this.createPark = function(){
+    $http({
+      method: 'POST',
+      url: '/parks',
+      data: this.createForm
+    }).then(response => {
+      console.log(response.data);
+    }, error => {
+      console.log(error);
+    })
+  }
 
 }]);

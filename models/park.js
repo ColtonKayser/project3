@@ -9,5 +9,5 @@ const parkSchema = new mongoose.Schema({
     notes: String
 });
 
-const Park = mongoose.model('Park', parkSchema)
-module.exports = Park;
+const Parks = mongoose.model('Park', parkSchema)
+module.exports = Parks;
