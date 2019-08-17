@@ -84,3 +84,18 @@ h5 {
   width: 20%;
   margin: 0;
 }
+/* == CREATE PARKS == */
+.create-park-btn{
+  margin: 15px 0;
+}
+/* == SAVED PARKS == */
+.userPark h5{
+  text-align: left;
+  font-weight: 600;
+  padding: 10px;
+}
+.userPark h6, a{
+  text-align: left;
+  text-transform: none;
+  margin: 0 10px;;
+}

@@ -81,29 +81,26 @@
       <input type="text" ng-model="ctrl.createForm.description"/>
       <!-- url -->
       <label for="ctrl.url">Park Website</label>
-      <input type="text" ng-model="ctrl.createForm.url" placeholder="Park URL"/>
+      <input type="text" ng-model="ctrl.createForm.url"/>
       <!-- visited -->
       <label for="ctrl.visited">Visited</label> <input type="checkbox" ng-model="ctrl.createForm.visited"/>
       <!-- notes -->
       <label for="ctrl.notes">Notes</label>
       <input type="text" ng-model="ctrl.createForm.notes"/>
       <br/>
-      <input class="button-primary" type="submit" value="Create Park" />
+      <input class="button-primary create-park-btn" type="submit" value="Create Park" />
     </form>
-
     <hr>
-    <!-- User Saved Parks -->
-    <h6>User Parks</h6>
+    <!-- SAVED PARKS -->
+    <h6>Saved Parks</h6>
     <ul class="userParkList">
       <li class="userPark" ng-repeat="userPark in ctrl.userParks">
-        Name: {{userPark.name}} <br/>
-        Designation: {{userPark.designation}} <br/>
-        Description: {{userPark.description}} <br/>
-        Website: <span><a href="{{userPark.url}}">{{userPark.url}}</a></span> <br/>
-        Visited: {{userPark.visited}} <br/>
-        Additional Notes: {{userPark.notes}} <br/>
-        <!-- DELETE -->
-        <button ng-click="ctrl.deleteUserPark(userPark)">Delete</button>
+        <h5>{{userPark.name}}</h5>
+        <h6> {{userPark.designation}}</h6>
+        <h6> {{userPark.description}}</h6>
+        <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
+        <h6>Visited: {{userPark.visited}}</h6>
+        <h6> Additional notes: {{userPark.notes}}</h6>
         <!-- EDIT bug NEEDS FIXING -->
         <form ng-submit="ctrl.editUserPark(userPark)">
           <input type="text" ng-model="ctrl.updatedName" placeholder="Name"/>
@@ -114,6 +111,8 @@
           <input type="text" ng-model="ctrl.updatedNotes" placeholder="Notes">
           <input type="submit" name="" value="Update Park">
         </form>
+        <!-- delete button -->
+        <button ng-click="ctrl.deleteUserPark(userPark)">Delete</button>
       </li>
     </ul>
   </div>
