@@ -29,10 +29,20 @@ nav a {
 }
 /* == FIND PARKS == */
 .find-park-by-state {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.find-park-by-state h6 {
+h6 {
+  text-align: center;
+  margin-top: 20px;
   text-transform: uppercase;
 }
+.find-park-by-state input {
+margin: 0 10px 0 10px;
+}
+hr {
+  margin: 0;
+}
+/* == CREATE PARKS == */
