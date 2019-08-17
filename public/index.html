@@ -14,28 +14,26 @@
     <header>
       <h1>U.S. National Parks Tracker</h1>
     </header>
-    <nav>
-      <a href="#">Find Park</a>
-      <a href="#">Add Park</a>
-      <a href="#">See List</a>
-    </nav>
+
+    <!-- NAVIGATION -->
+    <!-- <div ng-controller="PartialsController as ctrl">
+      <nav ng-include="'partials/navigation'">
+      </nav>
+    </div> -->
+
+    <!-- skeleton container starts here -->
     <div class="container">
       <!-- find park by state -->
+      <h6>Find Park By State</h6>
       <div class="section find-park-by-state">
-          <h6>Find Park By State</h6>
-          <form ng-submit="ctrl.getParks()">
-            <div class="row">
-              <div class="six columns">
-                <input class="u-full-width" type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
-                <input type="submit" value="FIND PARKS"/>
-              </div>
-            </div>
+        <form ng-submit="ctrl.getParks()">
+          <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
+          <input class="button button-primary" type="submit" value="FIND PARKS"/>
         </form>
       </div>
-
-
-
+      <hr>
       <!-- DISPLAY PARK NAMES -->
+      <h6>create park</h6>
       <ul class="apiParkList">
       <li class="park" ng-repeat="park in ctrl.parksData">
 
