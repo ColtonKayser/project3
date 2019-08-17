@@ -22,6 +22,7 @@ app.controller('MainController', ['$http', function($http) {
   //for toggling:
   this.showInfo = true;
   this.indexOfParkToShow = null;
+  this.indexOfEditFormToShow = null;
 
   // === GET PARKS === //
   this.getParks = function() {
@@ -32,6 +33,7 @@ app.controller('MainController', ['$http', function($http) {
     }).then(response => {
         console.log('after');
         this.parksData = response.data.data;
+
     })
   }// end get parks func
 
@@ -44,7 +46,7 @@ app.controller('MainController', ['$http', function($http) {
   this.addToUserPark = function(park){
     // this adds park bu doesnt remove or allow for update
     let index = this.parksData.indexOf(park)
-    this.userParks.push(park)
+    this.userParks.unshift(park)
     this.parksData.splice(index, 1)
   }
   //Create User Park
@@ -54,8 +56,17 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks',
       data: this.createForm
     }).then(response => {
-      console.log(response.data);
-      controller.getUserParks();
+      //puts park at the top of the array
+      controller.userParks.unshift(response.data);
+      //empties object
+      this.createForm ={};
+      //clears fields after submit
+      controller.name = null;
+      controller.designation = null;
+      controller.description = null;
+      controller.url = null;
+      controller.visited = false;
+      controller.notes = null;
     }, error => {
       console.log(error);
     })
@@ -90,7 +101,7 @@ app.controller('MainController', ['$http', function($http) {
 }
 
 
-  //edit user park bug needs fixin'
+  //edit user park
   this.editUserPark = function(userPark) {
     $http({
       method: 'PUT',
@@ -106,6 +117,7 @@ app.controller('MainController', ['$http', function($http) {
     }).then(
       function(response){
         controller.getUserParks();
+        controller.indexOfEditFormToShow = null;
       },
       function(error){
         console.log('error');
