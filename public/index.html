@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -10,29 +11,27 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller="MainController as ctrl">
-    <!-- HEADER -->
-    <header>
-      <h1>U.S. National Parks Tracker</h1>
-    </header>
-
-    <!-- NAVIGATION -->
-    <div>
-      <nav ng-include="'partials/navigation.html'">
-      </nav>
-    </div>
-
-    <!-- skeleton container starts here -->
-    <div class="container">
-      <div ng-include="ctrl.includePath">
-      </div>
-    <!-- CREATE PARK -->
-    <div class="container">
-      <div>
-        <div ng-include-"ctrl.includePath">
+    <div class="wrapper">
+      <!-- HEADER -->
+      <header>
+        <h1>U.S. National Parks <span>Tracker<span></h1>
+      </header>
+      <!-- NAVIGATION -->
+      <nav ng-include="'partials/navigation.html'"></nav>
+      <!-- skeleton container starts here -->
+      <div class="container">
+        <div ng-include="ctrl.includePath">
+        </div>
+      <!-- CREATE PARK -->
+      <div class="container">
+        <div>
+          <div ng-include-"ctrl.includePath">
+          </div>
         </div>
       </div>
+        <!-- SAVED PARKS -->
+      </div>
+      <footer ng-include="'partials/footer.html'"></footer>
     </div>
-    <!-- SAVED PARKS -->
-  </div>
   </body>
 </html>

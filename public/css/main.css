@@ -1,5 +1,14 @@
 body{
   margin-top: 0;
+  font-family: 'Playfair Display', serif;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.container {
+  flex: 1 0 auto;
 }
 /* == HEADER == */
 header {
@@ -9,23 +18,40 @@ header {
   width: 100%;
   background: ghostwhite;
   height: 75px;
+  box-shadow: 1px 1px 5px gray;
+  flex-shrink: 0;
+  /* image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60);
+
 }
 h1 {
   margin: 0;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 15px ghostwhite;
+  font-weight: 600;
+}
+header span {
+  font-weight: 200;
 }
 /* == NAVIGATION == */
 nav {
+  margin: 5px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: gold;
+  justify-content: space-around;
+  border-bottom: 0.1px solid gray;
 }
-nav a {
-  padding: 5px 20px;
+nav h5 {
+  margin: 0;
+  font-size: 18px;
   text-decoration: none;
   text-transform: uppercase;
   color: black;
+}
+nav h5:hover {
+  color: green;
 }
 /* == FIND PARKS == */
 .find-park-by-state {
@@ -109,4 +135,18 @@ h5 {
   text-align: left;
   text-transform: none;
   margin: 0 10px;;
+}
+/* == FOOTER  == */
+footer {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  text-align: center;
+  flex-shrink: 0;
+  background-color: ghostwhite;
+  box-shadow: 1px 1px 2px gray;
+}
+footer p {
+  text-transform: uppercase;
+  font-size: 13px;
 }
