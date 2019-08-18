@@ -29,6 +29,7 @@ router.put('/:id', (req, res) => {
     res.json(updatedPark);
   });
 });
+
 // update park from api
 router.put('/addpark/add', (req, res) => {
   const park = req.body.park;
@@ -42,5 +43,6 @@ router.put('/addpark/add', (req, res) => {
     notes: park.notes
   })
 })
+
 
 module.exports = router;
