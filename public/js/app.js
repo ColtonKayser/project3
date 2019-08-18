@@ -1,6 +1,7 @@
 const app = angular.module('ParkApp', []);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // === PARTIALS CONTROLLER === //
 app.controller('PartialsController', ['$http', function($http) {
@@ -8,6 +9,8 @@ app.controller('PartialsController', ['$http', function($http) {
 }]);
 >>>>>>> 19f2b2609499b351cb6012cf4c052e736f50adeb
 
+=======
+>>>>>>> 5a2f2e764dafee1d6e516685db524c6a3e4f9849
 // === API CONTROLLER === //
 app.controller('MainController', ['$http', function($http) {
   // === VARIABLES === //
