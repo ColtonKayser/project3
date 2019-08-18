@@ -20,8 +20,9 @@ app.controller('MainController', ['$http', function($http) {
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
   //for toggling:
-  this.showInfo = true;
+  this.showInfo = false;
   this.indexOfParkToShow = null;
+  this.indexOfEditFormToShow = null;
 
   // === GET PARKS === //
   this.getParks = function() {
@@ -43,9 +44,14 @@ app.controller('MainController', ['$http', function($http) {
   // add park to userParks
   this.addToUserPark = function(park){
     // this adds park bu doesnt remove or allow for update
-    let index = this.parksData.indexOf(park)
-    this.userParks.push(park)
-    this.parksData.splice(index, 1)
+    this.userParks.unshift(park)
+    $http({
+      method: 'PUT',
+      url: '/parks/addpark/add',
+      data: {
+        park: park
+      }
+    })
   }
   //Create User Park
   this.createUserPark = function(){
@@ -54,8 +60,17 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks',
       data: this.createForm
     }).then(response => {
-      console.log(response.data);
-      controller.getUserParks();
+      //puts park at the top of the array
+      controller.userParks.unshift(response.data);
+      //empties object
+      this.createForm ={};
+      //clears fields after submit
+      controller.name = null;
+      controller.designation = null;
+      controller.description = null;
+      controller.url = null;
+      controller.visited = false;
+      controller.notes = null;
     }, error => {
       console.log(error);
     })
@@ -88,9 +103,7 @@ app.controller('MainController', ['$http', function($http) {
         }
     );
 }
-
-
-  //edit user park bug needs fixin'
+  //edit user park
   this.editUserPark = function(userPark) {
     $http({
       method: 'PUT',
@@ -106,6 +119,7 @@ app.controller('MainController', ['$http', function($http) {
     }).then(
       function(response){
         controller.getUserParks();
+        controller.indexOfEditFormToShow = null;
       },
       function(error){
         console.log('error');
