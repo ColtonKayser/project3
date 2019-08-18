@@ -24,15 +24,15 @@
     <!-- skeleton container starts here -->
     <div class="container">
       <!-- find park by state -->
-      <h6>Find Park By State</h6>
-      <div class="section find-park-by-state">
+      <h6 ng-click="ctrl.toggleParkApi()">Find Park By State</h6>
+      <div ng-show="ctrl.showApi" class="section find-park-by-state">
         <form ng-submit="ctrl.getParks()">
           <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
           <input class="button button-primary" type="submit" value="FIND PARKS"/>
         </form>
       </div>
       <!-- DISPLAY PARK NAMES -->
-      <ul class="apiParkList">
+      <ul ng-show="ctrl.showApi" class="apiParkList">
         <li class="park" ng-repeat="park in ctrl.parksData">
           <!-- park name -->
           <h5 ng-if="$index !== ctrl.indexOfParkToShow"
@@ -59,7 +59,7 @@
             <p>{{park.description}}</p>
             <a href="{{park.url}}">{{park.url}}</a>
             <!-- Hide info about park -->
-            <button 
+            <button
             ng-click="ctrl.indexOfParkToShow = null">
               Hide Info
             </button>
@@ -74,7 +74,7 @@
       >
       create park</h6>
     <!-- form -->
-    <form 
+    <form
       ng-show="ctrl.showInfo"
       ng-submit="ctrl.createUserPark()">
       <!-- name -->
@@ -99,8 +99,8 @@
     </form>
     <hr>
     <!-- SAVED PARKS -->
-    <h6>Saved Parks</h6>
-    <ul class="userParkList">
+    <h6 ng-click="ctrl.toggleSavedParks()">Saved Parks</h6>
+    <ul ng-show="ctrl.showSavedPark" class="userParkList">
       <li class="userPark" ng-repeat="userPark in ctrl.userParks">
         <h5>{{userPark.name}}</h5>
         <h6> {{userPark.designation}}</h6>

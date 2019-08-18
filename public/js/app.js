@@ -38,6 +38,17 @@ app.controller('MainController', ['$http', function($http) {
   this.toggleInfo = () => {
     this.showInfo = !this.showInfo;
   }
+
+  //toggles api search by state
+  this.toggleParkApi = () => {
+    this.showApi = !this.showApi;
+  }
+
+  //toggles saved parks section
+  this.toggleSavedParks = () => {
+    this.showSavedPark = !this.showSavedPark;
+  }
+  
   // }; // end toggle func
   // add park to userParks
   this.addToUserPark = function(park){
@@ -124,7 +135,7 @@ app.controller('MainController', ['$http', function($http) {
       }
     )
   }
-  
+
 
   this.getUserParks();
 }]);
