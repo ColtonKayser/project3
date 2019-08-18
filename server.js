@@ -30,9 +30,7 @@ const parksController = require('./controllers/parks.js');
 app.use('/parks', parksController);
 
 
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+
 
 
 
