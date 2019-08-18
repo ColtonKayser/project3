@@ -35,30 +35,32 @@
       <ul class="apiParkList">
         <li class="park" ng-repeat="park in ctrl.parksData">
           <!-- park name -->
-          <h5
-            ng-click="ctrl.togglePark()">
+          <h5 ng-if="$index !== ctrl.indexOfParkToShow"
+          ng-click="ctrl.indexOfParkToShow = $index">
             {{park.fullName}}
           </h5>
           <!-- <br/> -->
           <!-- show park info a tag -->
-          <a
-            href="#"
+          <!-- <button
             ng-if="$index !== ctrl.indexOfParkToShow"
             ng-click="ctrl.indexOfParkToShow = $index"
             >
-            Show This Park's Info
-          </a>
+            Show Park Info
+          </button> -->
           <br/>
           <!-- save this park -->
+          <!-- this was in the div below but i think it does nothing -->
+          <!-- ng-click="ctrl.toggleInfo()" -->
           <div
             ng-if="$index === ctrl.indexOfParkToShow"
-            ng-show="ctrl.showInfo"
             class="show-info"
           >
             <h6 class="show-info-h6">{{park.designation}}</h6>
             <p>{{park.description}}</p>
             <a href="{{park.url}}">{{park.url}}</a>
-            <button>
+            <!-- Hide info about park -->
+            <button 
+            ng-click="ctrl.indexOfParkToShow = null">
               Hide Info
             </button>
           </div>
@@ -67,9 +69,14 @@
       </ul>
     <hr>
     <!-- CREATE PARK -->
-    <h6>create park</h6>
+    <h6
+      ng-click="ctrl.toggleInfo()"
+      >
+      create park</h6>
     <!-- form -->
-    <form ng-submit="ctrl.createUserPark()">
+    <form 
+      ng-show="ctrl.showInfo"
+      ng-submit="ctrl.createUserPark()">
       <!-- name -->
       <label for="ctrl.name">Park Name</label>
       <input type="text" ng-model="ctrl.createForm.name" />
@@ -101,8 +108,8 @@
         <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
         <h6>Visited: {{userPark.visited}}</h6>
         <h6> Additional notes: {{userPark.notes}}</h6>
-        <!-- EDIT NEEDS FIXING -->
-        <ng-if="$index !== ctrl.indexOfEditFormToShow"
+        <!-- EDIT  -->
+        <a ng-if="$index !== ctrl.indexOfEditFormToShow"
           href="#"
           ng-click="ctrl.indexOfEditFormToShow = $index">
             Edit

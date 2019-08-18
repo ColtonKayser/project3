@@ -20,7 +20,7 @@ app.controller('MainController', ['$http', function($http) {
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
   //for toggling:
-  this.showInfo = true;
+  this.showInfo = false;
   this.indexOfParkToShow = null;
   this.indexOfEditFormToShow = null;
 
@@ -33,7 +33,6 @@ app.controller('MainController', ['$http', function($http) {
     }).then(response => {
         console.log('after');
         this.parksData = response.data.data;
-
     })
   }// end get parks func
 
