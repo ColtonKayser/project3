@@ -1,11 +1,5 @@
 const app = angular.module('ParkApp', []);
 
-// === PARTIALS CONTROLLER === //
-app.controller('PartialsController', ['$http', function($http) {
-  console.log('partials controller');
-}]);
-
-
 
 // === API CONTROLLER === //
 app.controller('MainController', ['$http', function($http) {
