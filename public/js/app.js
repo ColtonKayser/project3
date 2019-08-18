@@ -23,6 +23,11 @@ app.controller('MainController', ['$http', function($http) {
     this.includePath = 'partials/' + path + '.html';
   }
 
+  //to reset forms
+  // this.reset = function(){
+  //   console.log('clearing');
+  // }
+
   // === GET PARKS === //
   this.getParks = function() {
     console.log('before');
@@ -54,8 +59,9 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks',
       data: this.createForm
     }).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       controller.getUserParks();
+      this.createForm = {};
     }, error => {
       console.log(error);
     })
