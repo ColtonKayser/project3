@@ -14,9 +14,9 @@
       ng-click="ctrl.togglePark()">
       {{park.fullName}}
     </h5>
-    <!-- <br/> -->
     <!-- show park info a tag -->
     <a
+      class="anchor-li"
       href="#"
       ng-if="$index !== ctrl.indexOfParkToShow"
       ng-click="ctrl.indexOfParkToShow = $index"
