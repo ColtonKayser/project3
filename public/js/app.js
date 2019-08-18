@@ -1,16 +1,6 @@
 const app = angular.module('ParkApp', []);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// === PARTIALS CONTROLLER === //
-app.controller('PartialsController', ['$http', function($http) {
-  console.log('partials controller');
-}]);
->>>>>>> 19f2b2609499b351cb6012cf4c052e736f50adeb
 
-=======
->>>>>>> 5a2f2e764dafee1d6e516685db524c6a3e4f9849
 // === API CONTROLLER === //
 app.controller('MainController', ['$http', function($http) {
   // === VARIABLES === //
@@ -24,9 +14,14 @@ app.controller('MainController', ['$http', function($http) {
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
   //for toggling:
-  this.showInfo = false;
+  this.showInfo = true;
   this.indexOfParkToShow = null;
-  this.indexOfEditFormToShow = null;
+
+  // === PARTIALS === //
+  this.includePath = 'partials/searchparks.html';
+  this.changeInclude = (path) => {
+    this.includePath = 'partials/' + path + '.html';
+  }
 
   // === GET PARKS === //
   this.getParks = function() {
@@ -44,29 +39,13 @@ app.controller('MainController', ['$http', function($http) {
   this.toggleInfo = () => {
     this.showInfo = !this.showInfo;
   }
-
-  //toggles api search by state
-  this.toggleParkApi = () => {
-    this.showApi = !this.showApi;
-  }
-
-  //toggles saved parks section
-  this.toggleSavedParks = () => {
-    this.showSavedPark = !this.showSavedPark;
-  }
-  
   // }; // end toggle func
   // add park to userParks
   this.addToUserPark = function(park){
     // this adds park bu doesnt remove or allow for update
-    this.userParks.unshift(park)
-    $http({
-      method: 'PUT',
-      url: '/parks/addpark/add',
-      data: {
-        park: park
-      }
-    })
+    let index = this.parksData.indexOf(park)
+    this.userParks.push(park)
+    this.parksData.splice(index, 1)
   }
   //Create User Park
   this.createUserPark = function(){
@@ -75,17 +54,8 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks',
       data: this.createForm
     }).then(response => {
-      //puts park at the top of the array
-      controller.userParks.unshift(response.data);
-      //empties object
-      this.createForm ={};
-      //clears fields after submit
-      controller.name = null;
-      controller.designation = null;
-      controller.description = null;
-      controller.url = null;
-      controller.visited = false;
-      controller.notes = null;
+      console.log(response.data);
+      controller.getUserParks();
     }, error => {
       console.log(error);
     })
@@ -118,7 +88,9 @@ app.controller('MainController', ['$http', function($http) {
         }
     );
 }
-  //edit user park
+
+
+  //edit user park bug needs fixin'
   this.editUserPark = function(userPark) {
     $http({
       method: 'PUT',
@@ -134,14 +106,12 @@ app.controller('MainController', ['$http', function($http) {
     }).then(
       function(response){
         controller.getUserParks();
-        controller.indexOfEditFormToShow = null;
       },
       function(error){
         console.log('error');
       }
     )
   }
-
 
   this.getUserParks();
 }]);
