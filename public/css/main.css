@@ -82,7 +82,7 @@ hr {
 /* == DISPLAY PARKS == */
 .apiParkList {
   margin: 10px 0;
-  height: 300px;
+  height: 400px;
   overflow: auto;
 }
 li {
