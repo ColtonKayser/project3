@@ -52,6 +52,7 @@ nav h5 {
 }
 nav h5:hover {
   color: green;
+  cursor: pointer;
 }
 
 /* == ABOUT== */
