@@ -23,20 +23,18 @@ app.controller('MainController', ['$http', function($http) {
     this.includePath = 'partials/' + path + '.html';
   }
 
-  //to reset forms
-  // this.reset = function(){
-  //   console.log('clearing');
-  // }
-
   // === GET PARKS === //
   this.getParks = function() {
     console.log('before');
+    this.message = 'Finding Parks...'
     $http({
       method: 'GET',
       url: this.baseURL + this.parks + this.stateCode + this.state + this.apiKey
     }).then(response => {
         console.log('after');
+        this.message = '';
         this.parksData = response.data.data;
+        this.state = ''; // clears form once data appears
     })
   }// end get parks func
 
