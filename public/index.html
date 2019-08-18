@@ -24,7 +24,10 @@
     <!-- skeleton container starts here -->
     <div class="container">
       <!-- find park by state -->
-      <h6 ng-click="ctrl.toggleParkApi()">Find Park By State</h6>
+      <h6 
+      ng-click="ctrl.toggleParkApi()"
+      class="section-header"
+      >Find Park By State</h6>
       <div ng-show="ctrl.showApi" class="section find-park-by-state">
         <form ng-submit="ctrl.getParks()">
           <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
@@ -71,6 +74,7 @@
     <!-- CREATE PARK -->
     <h6
       ng-click="ctrl.toggleInfo()"
+      class="section-header"
       >
       create park</h6>
     <!-- form -->
@@ -99,7 +103,9 @@
     </form>
     <hr>
     <!-- SAVED PARKS -->
-    <h6 ng-click="ctrl.toggleSavedParks()">Saved Parks</h6>
+    <h6 ng-click="ctrl.toggleSavedParks()"
+        class="section-header"
+        >Saved Parks</h6>
     <ul ng-show="ctrl.showSavedPark" class="userParkList">
       <li class="userPark" ng-repeat="userPark in ctrl.userParks">
         <h5>{{userPark.name}}</h5>

@@ -87,7 +87,10 @@ h5 {
   width: 20%;
   margin: 0;
 }
-
+.section-header:hover{
+  cursor: pointer;
+  outline: 1.5px solid #0FA0CE;
+}
 /* .ng-binding {
   margin-bottom: -5px;
 } */
