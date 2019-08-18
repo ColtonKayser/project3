@@ -23,116 +23,16 @@
 
     <!-- skeleton container starts here -->
     <div class="container">
-      <!-- find park by state -->
-      <h6 
-      ng-click="ctrl.toggleParkApi()"
-      class="section-header"
-      >Find Park By State</h6>
-      <div ng-show="ctrl.showApi" class="section find-park-by-state">
-        <form ng-submit="ctrl.getParks()">
-          <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
-          <input class="button button-primary" type="submit" value="FIND PARKS"/>
-        </form>
+      <div ng-include="ctrl.includePath">
       </div>
-      <!-- DISPLAY PARK NAMES -->
-      <ul ng-show="ctrl.showApi" class="apiParkList">
-        <li class="park" ng-repeat="park in ctrl.parksData">
-          <!-- park name -->
-          <h5 ng-if="$index !== ctrl.indexOfParkToShow"
-          ng-click="ctrl.indexOfParkToShow = $index">
-            {{park.fullName}}
-          </h5>
-          <!-- <br/> -->
-          <!-- show park info a tag -->
-          <!-- <button
-            ng-if="$index !== ctrl.indexOfParkToShow"
-            ng-click="ctrl.indexOfParkToShow = $index"
-            >
-            Show Park Info
-          </button> -->
-          <br/>
-          <!-- save this park -->
-          <!-- this was in the div below but i think it does nothing -->
-          <!-- ng-click="ctrl.toggleInfo()" -->
-          <div
-            ng-if="$index === ctrl.indexOfParkToShow"
-            class="show-info"
-          >
-            <h6 class="show-info-h6">{{park.designation}}</h6>
-            <p>{{park.description}}</p>
-            <a href="{{park.url}}">{{park.url}}</a>
-            <!-- Hide info about park -->
-            <button
-            ng-click="ctrl.indexOfParkToShow = null">
-              Hide Info
-            </button>
-          </div>
-          <button class="button-primary save-btn" ng-click="ctrl.addToUserPark(park)">Save</button>
-        </li>
-      </ul>
-    <hr>
     <!-- CREATE PARK -->
-    <h6
-      ng-click="ctrl.toggleInfo()"
-      class="section-header"
-      >
-      create park</h6>
-    <!-- form -->
-    <form
-      ng-show="ctrl.showInfo"
-      ng-submit="ctrl.createUserPark()">
-      <!-- name -->
-      <label for="ctrl.name">Park Name</label>
-      <input type="text" ng-model="ctrl.createForm.name" />
-      <!-- designation -->
-      <label for="ctrl.designation">Park Designation</label>
-      <input type="text" ng-model="ctrl.createForm.designation"/>
-      <!-- description -->
-      <label for="ctrl.description">Description</label>
-      <input type="text" ng-model="ctrl.createForm.description"/>
-      <!-- url -->
-      <label for="ctrl.url">Park Website</label>
-      <input type="text" ng-model="ctrl.createForm.url"/>
-      <!-- visited -->
-      <label for="ctrl.visited">Visited</label> <input type="checkbox" ng-model="ctrl.createForm.visited"/>
-      <!-- notes -->
-      <label for="ctrl.notes">Notes</label>
-      <input type="text" ng-model="ctrl.createForm.notes"/>
-      <br/>
-      <input class="button-primary create-park-btn" type="submit" value="Create Park" />
-    </form>
-    <hr>
+    <div class="container">
+      <div>
+        <div ng-include-"ctrl.includePath">
+        </div>
+      </div>
+    </div>
     <!-- SAVED PARKS -->
-    <h6 ng-click="ctrl.toggleSavedParks()"
-        class="section-header"
-        >Saved Parks</h6>
-    <ul ng-show="ctrl.showSavedPark" class="userParkList">
-      <li class="userPark" ng-repeat="userPark in ctrl.userParks">
-        <h5>{{userPark.name}}</h5>
-        <h6> {{userPark.designation}}</h6>
-        <h6> {{userPark.description}}</h6>
-        <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
-        <h6>Visited: {{userPark.visited}}</h6>
-        <h6> Additional notes: {{userPark.notes}}</h6>
-        <!-- EDIT  -->
-        <button ng-if="$index !== ctrl.indexOfEditFormToShow"
-          ng-click="ctrl.indexOfEditFormToShow = $index">
-            Edit
-        </button>
-        <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editUserPark(userPark)">
-          <input type="text" ng-model="ctrl.updatedName" placeholder="Name"/>
-          <input type="text" ng-model="ctrl.updatedDesignation" placeholder="Designation"/>
-          <input type="text" ng-model="ctrl.updatedDescription" placeholder="Description">
-          <input type="text" ng-model="ctrl.updatedUrl" placeholder="URL"/>
-          Visited: <input type="checkbox" ng-model="ctrl.updatedVisited"/>
-          <input type="text" ng-model="ctrl.updatedNotes" placeholder="Notes">
-          <input type="submit" name="" value="Update Park">
-        </form>
-        <!-- delete button -->
-        <button ng-click="ctrl.deleteUserPark(userPark)">Delete</button>
-      </li>
-    </ul>
   </div>
   </body>
 </html>
-<!--  -->
