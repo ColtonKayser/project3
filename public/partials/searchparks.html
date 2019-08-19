@@ -29,6 +29,7 @@
     <br/>
     <!-- save this park -->
     <button class="button-primary save-btn" ng-click="ctrl.addToUserPark(park)">Save</button>
+    {{this.savedMessage}}
     <div
       ng-if="$index === ctrl.indexOfParkToShow"
       ng-show="ctrl.showInfo"

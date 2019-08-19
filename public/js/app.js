@@ -14,7 +14,7 @@ app.controller('MainController', ['$http', function($http) {
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
   //for toggling:
-  this.showInfo = false;
+  this.showInfo = true;
   this.indexOfParkToShow = null;
   this.indexOfEditFormToShow = null;
 
