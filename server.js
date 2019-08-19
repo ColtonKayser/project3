@@ -29,11 +29,6 @@ app.use(express.json());
 const parksController = require('./controllers/parks.js');
 app.use('/parks', parksController);
 
-
-
-
-
-
 //listener
 app.listen(PORT, () => {
   console.log('listening on port: ', PORT);
