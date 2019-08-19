@@ -46,9 +46,14 @@ app.controller('MainController', ['$http', function($http) {
   // add park to userParks
   this.addToUserPark = function(park){
     // this adds park bu doesnt remove or allow for update
-    let index = this.parksData.indexOf(park)
-    this.userParks.push(park)
-    this.parksData.splice(index, 1)
+    this.userParks.unshift(park)
+    $http({
+      method: 'PUT',
+      url: '/parks/addpark/add',
+      data: {
+        park: park
+      }
+    })
   }
   //Create User Park
   this.createUserPark = function(){
