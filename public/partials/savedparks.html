@@ -5,7 +5,8 @@
     <h6> {{userPark.designation}}</h6>
     <h6> {{userPark.description}}</h6>
     <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
-    <h6>Visited: {{userPark.visited}}</h6>
+    <h6 ng-if="userPark.visited === false">Visited: {{ctrl.no}}</h6>
+    <h6 ng-if="userPark.visited === true">Visited: {{ctrl.yes}}</h6>
     <h6> Additional notes: {{userPark.notes}}</h6>
     <!-- EDIT -->
     <button ng-if="$index !== ctrl.indexOfEditFormToShow" ng-click="ctrl.indexOfEditFormToShow = $index"> Edit </button>

@@ -19,6 +19,8 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfEditFormToShow = null;
   this.savedMessage = ''
   this.indexOfSavedMessage = null;
+  this.yes = 'yes';
+  this.no = 'no';
 
   // === PARTIALS === //
   this.includePath = 'partials/searchparks.html';
