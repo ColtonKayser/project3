@@ -10,7 +10,7 @@
   <h5>{{ctrl.message}}</h5>
 </div>
 <!-- DISPLAY PARK NAMES -->
-
+<h5 ng-if="$index !== ctrl.indexOfSavedMessage">{{ctrl.savedMessage}}</h5>
 <ul class="apiParkList">
   <li class="park" ng-repeat="park in ctrl.parksData">
     <!-- park name -->
@@ -18,7 +18,7 @@
       ng-click="ctrl.togglePark()">
       {{park.fullName}}
     </h5>
-    <h5 ng-if="$index !== ctrl.indexOfSavedMessage">{{ctrl.savedMessage}}</h5>
+
     <!-- show park info a tag -->
     <a
       class="anchor-li"
