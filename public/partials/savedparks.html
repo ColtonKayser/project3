@@ -7,8 +7,9 @@
     <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
     <h6>Visited: {{userPark.visited}}</h6>
     <h6> Additional notes: {{userPark.notes}}</h6>
-    <!-- EDIT bug NEEDS FIXING -->
-    <form ng-submit="ctrl.editUserPark(userPark)">
+    <!-- EDIT -->
+    <button ng-if="$index !== ctrl.indexOfEditFormToShow" ng-click="ctrl.indexOfEditFormToShow = $index"> Edit </button>
+    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editUserPark(userPark)">
       <input type="text" ng-model="ctrl.updatedName" placeholder="Name"/>
       <input type="text" ng-model="ctrl.updatedDesignation" placeholder="Designation"/>
       <input type="text" ng-model="ctrl.updatedDescription" placeholder="Description">
