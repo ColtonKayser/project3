@@ -14,8 +14,9 @@ app.controller('MainController', ['$http', function($http) {
   this.apiKey = '&api_key=dIyH9p8twcw6BsTtQoTUfdOgCKnNgCVfsCAsNGhb';
   this.searchURL = this.baseURL + this.parks + this.stateCode + this.state +  this.apiKey;
   //for toggling:
-  this.showInfo = true;
+  this.showInfo = false;
   this.indexOfParkToShow = null;
+  this.indexOfEditFormToShow = null;
 
   // === PARTIALS === //
   this.includePath = 'partials/searchparks.html';
@@ -63,7 +64,8 @@ app.controller('MainController', ['$http', function($http) {
       data: this.createForm
     }).then(response => {
       // console.log(response.data);
-      controller.getUserParks();
+      controller.userParks.unshift(response.data);
+      // controller.getUserParks();
       this.createForm = {};
     }, error => {
       console.log(error);
