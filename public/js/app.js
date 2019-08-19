@@ -17,6 +17,8 @@ app.controller('MainController', ['$http', function($http) {
   this.showInfo = true;
   this.indexOfParkToShow = null;
   this.indexOfEditFormToShow = null;
+  this.savedMessage = ''
+  this.indexOfSavedMessage = null;
 
   // === PARTIALS === //
   this.includePath = 'partials/searchparks.html';
@@ -47,6 +49,7 @@ app.controller('MainController', ['$http', function($http) {
   // add park to userParks
   this.addToUserPark = function(park){
     // this adds park bu doesnt remove or allow for update
+    this.savedMessage = 'Park Saved'
     this.userParks.unshift(park)
     $http({
       method: 'PUT',
