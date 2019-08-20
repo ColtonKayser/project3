@@ -4,7 +4,7 @@
     <h5>{{userPark.name}}</h5>
     <h6> {{userPark.designation}}</h6>
     <h6> {{userPark.description}}</h6>
-    <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
+    <span><a target="_blank" rel="noopener noreferrer" href="{{userPark.url}}">{{userPark.url}}</a></span>
     <h6 ng-if="userPark.visited === false">Visited: {{ctrl.no}}</h6>
     <h6 ng-if="userPark.visited === true">Visited: {{ctrl.yes}}</h6>
     <h6> Additional notes: {{userPark.notes}}</h6>
