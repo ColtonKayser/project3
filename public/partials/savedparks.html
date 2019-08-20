@@ -1,0 +1,25 @@
+<h6>MY SAVED PARKS</h6>
+<ul class="userParkList">
+  <li class="userPark" ng-repeat="userPark in ctrl.userParks">
+    <h5>{{userPark.name}}</h5>
+    <h6> {{userPark.designation}}</h6>
+    <h6> {{userPark.description}}</h6>
+    <span><a href="{{userPark.url}}">{{userPark.url}}</a></span>
+    <h6 ng-if="userPark.visited === false">Visited: {{ctrl.no}}</h6>
+    <h6 ng-if="userPark.visited === true">Visited: {{ctrl.yes}}</h6>
+    <h6> Additional notes: {{userPark.notes}}</h6>
+    <!-- EDIT -->
+    <button ng-if="$index !== ctrl.indexOfEditFormToShow" ng-click="ctrl.indexOfEditFormToShow = $index"> Edit </button>
+    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editUserPark(userPark)">
+      <input type="text" ng-model="ctrl.updatedName" placeholder="Name"/>
+      <input type="text" ng-model="ctrl.updatedDesignation" placeholder="Designation"/>
+      <input type="text" ng-model="ctrl.updatedDescription" placeholder="Description">
+      <input type="text" ng-model="ctrl.updatedUrl" placeholder="URL"/>
+      Visited: <input type="checkbox" ng-model="ctrl.updatedVisited"/>
+      <input type="text" ng-model="ctrl.updatedNotes" placeholder="Notes">
+      <input type="submit" name="" value="Update Park">
+    </form>
+    <!-- delete button -->
+    <button ng-click="ctrl.deleteUserPark(userPark)">Delete</button>
+  </li>
+</ul>

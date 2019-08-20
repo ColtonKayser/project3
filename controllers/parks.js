@@ -23,16 +23,11 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-//update
-router.put('/:id', (req, res) => {
-  Parks.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedPark) => {
-    res.json(updatedPark);
-  });
-});
 // update park from api
 router.put('/addpark/add', (req, res) => {
   const park = req.body.park;
-  console.log(JSON.stringify(req.body))
+  console.log('update park from api route');
+  // console.log(JSON.stringify(req.body))
   Parks.create({
     name: park.name,
     designation: park.designation,
@@ -42,5 +37,15 @@ router.put('/addpark/add', (req, res) => {
     notes: park.notes
   })
 })
+
+//update
+router.put('/:id', (req, res) => {
+  Parks.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedPark) => {
+    res.json(updatedPark);
+  });
+});
+
+
+
 
 module.exports = router;

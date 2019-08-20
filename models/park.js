@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const parkSchema = new mongoose.Schema({
     name: String,
@@ -9,5 +9,5 @@ const parkSchema = new mongoose.Schema({
     notes: String,
 });
 
-const Parks = mongoose.model('Park', parkSchema)
+const Parks = mongoose.model('Park', parkSchema);
 module.exports = Parks;

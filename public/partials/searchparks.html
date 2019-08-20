@@ -1,0 +1,48 @@
+<!-- find park by state -->
+<h6>Find Park By State</h6>
+<div class="section find-park-by-state">
+  <form ng-submit="ctrl.getParks()">
+    <input type="text" ng-model="ctrl.state" placeholder="ex: NY"/>
+    <input class="button button-primary" type="submit" value="FIND PARKS"/>
+  </form>
+</div>
+<div>
+  <h5>{{ctrl.message}}</h5>
+</div>
+<!-- DISPLAY PARK NAMES -->
+<h5 ng-if="$index !== ctrl.indexOfSavedMessage" ng-click="ctrl.indexOfSavedMessage = $index">{{ctrl.savedMessage}}</h5>
+<ul class="apiParkList">
+  <li class="park" ng-repeat="park in ctrl.parksData">
+    <!-- park name -->
+    <h5
+      ng-click="ctrl.togglePark()">
+      {{park.fullName}}
+    </h5>
+
+    <!-- show park info a tag -->
+    <a
+      class="anchor-li"
+      href="#"
+      ng-if="$index !== ctrl.indexOfParkToShow"
+      ng-click="ctrl.indexOfParkToShow = $index"
+      >
+      Show This Park's Info
+    </a>
+    <br/>
+    <!-- save this park -->
+    <button class="button-primary save-btn" ng-click="ctrl.addToUserPark(park)" ng-click="ctrl.indexOfSavedMessage !== $index">Save</button>
+    <div
+      ng-if="$index === ctrl.indexOfParkToShow"
+      ng-show="ctrl.showInfo"
+      class="show-info"
+    >
+      <h6 class="show-info-h6">{{park.designation}}</h6>
+      <p>{{park.description}}</p>
+      <a href="{{park.url}}">{{park.url}}</a> <br/>
+      <button id="hide-button"
+        ng-click="ctrl.indexOfParkToShow = null">
+        Hide Info
+      </button>
+    </div>
+  </li>
+</ul>
