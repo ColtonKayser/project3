@@ -19,6 +19,7 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfEditFormToShow = null;
   this.savedMessage = ''
   this.indexOfSavedMessage = null;
+  this.indexOfCreateMessage = null;
   this.yes = 'Yes';
   this.no = 'No';
   this.parkCreatedMessage = '';
@@ -40,7 +41,9 @@ app.controller('MainController', ['$http', function($http) {
         console.log('after');
         this.message = '';
         this.parksData = response.data.data;
+        console.log(this.parksData);
         this.state = ''; // clears form once data appears
+
     })
   }// end get parks func
 
@@ -64,6 +67,7 @@ app.controller('MainController', ['$http', function($http) {
   }
   //Create User Park
   this.createUserPark = function(){
+    this.parkCreatedMessage = 'Park Created';
     $http({
       method: 'POST',
       url: '/parks',
@@ -72,7 +76,7 @@ app.controller('MainController', ['$http', function($http) {
       // console.log(response.data);
       controller.userParks.unshift(response.data);
       // controller.getUserParks();
-      this.parkCreatedMessage = 'Park Created';
+
       this.createForm = {};
     }, error => {
       console.log(error);
