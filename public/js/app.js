@@ -43,7 +43,6 @@ app.controller('MainController', ['$http', function($http) {
         this.parksData = response.data.data;
         console.log(this.parksData);
         this.state = ''; // clears form once data appears
-
     })
   }// end get parks func
 
@@ -52,9 +51,9 @@ app.controller('MainController', ['$http', function($http) {
     this.showInfo = !this.showInfo;
   }
   // }; // end toggle func
+
   // add park to userParks
   this.addToUserPark = function(park){
-    // this adds park bu doesnt remove or allow for update
     this.savedMessage = 'Park Saved'
     this.userParks.unshift(park)
     $http({
@@ -73,10 +72,8 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks',
       data: this.createForm
     }).then(response => {
-      // console.log(response.data);
       controller.userParks.unshift(response.data);
-      // controller.getUserParks();
-
+      controller.getUserParks();
       this.createForm = {};
     }, error => {
       console.log(error);
@@ -90,7 +87,6 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks/',
     }).then(function(response){
       controller.userParks = response.data;
-
     }, function(){
       console.log('error');
     })
@@ -128,7 +124,6 @@ app.controller('MainController', ['$http', function($http) {
     }).then(
       function(response){
         controller.getUserParks();
-
       },
       function(error){
         console.log('error');

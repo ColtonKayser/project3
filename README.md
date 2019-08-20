@@ -21,9 +21,9 @@ Our [National Park Tracker](https://nationalpark.herokuapp.com/) lets you search
 • API Integration
 
 ## API Functionality
-Our Find Park form pulls information from the [National Parks Service API] (https://www.nps.gov/subjects/digital/nps-data-api.htm). We accessed data related to each park's name, destination, description, and url by making an AJAX call and then used AngularJS to populate those data points on the page.
+Our Find Park form pulls information from the [National Parks Service API](https://www.nps.gov/subjects/digital/nps-data-api.htm). We accessed data related to each park's name, destination, description, and url by making an AJAX call and then used AngularJS to populate those data points on the page.
 
-We also had our own API 
+We also had our own API
 
 
 ## Collaborators
