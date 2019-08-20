@@ -122,7 +122,7 @@ h5 {
 .save-btn {
   align-self: center;
   width: 20%;
-  margin: 0;
+  margin: 0 0 15px 0;
 }
 .section-header:hover{
   cursor: pointer;
