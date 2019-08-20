@@ -21,6 +21,7 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfSavedMessage = null;
   this.yes = 'Yes';
   this.no = 'No';
+  this.parkCreatedMessage = '';
 
   // === PARTIALS === //
   this.includePath = 'partials/searchparks.html';
@@ -71,6 +72,7 @@ app.controller('MainController', ['$http', function($http) {
       // console.log(response.data);
       controller.userParks.unshift(response.data);
       // controller.getUserParks();
+      this.parkCreatedMessage = 'Park Created';
       this.createForm = {};
     }, error => {
       console.log(error);
@@ -122,6 +124,7 @@ app.controller('MainController', ['$http', function($http) {
     }).then(
       function(response){
         controller.getUserParks();
+
       },
       function(error){
         console.log('error');
