@@ -19,10 +19,8 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfEditFormToShow = null;
   this.savedMessage = ''
   this.indexOfSavedMessage = null;
-  this.indexOfCreateMessage = null;
-  this.yes = 'Yes';
-  this.no = 'No';
-  this.parkCreatedMessage = '';
+  this.yes = 'yes';
+  this.no = 'no';
 
   // === PARTIALS === //
   this.includePath = 'partials/searchparks.html';
@@ -41,7 +39,6 @@ app.controller('MainController', ['$http', function($http) {
         console.log('after');
         this.message = '';
         this.parksData = response.data.data;
-        console.log(this.parksData);
         this.state = ''; // clears form once data appears
     })
   }// end get parks func
@@ -51,9 +48,9 @@ app.controller('MainController', ['$http', function($http) {
     this.showInfo = !this.showInfo;
   }
   // }; // end toggle func
-
   // add park to userParks
   this.addToUserPark = function(park){
+    // this adds park bu doesnt remove or allow for update
     this.savedMessage = 'Park Saved'
     this.userParks.unshift(park)
     $http({
@@ -66,14 +63,14 @@ app.controller('MainController', ['$http', function($http) {
   }
   //Create User Park
   this.createUserPark = function(){
-    this.parkCreatedMessage = 'Park Created';
     $http({
       method: 'POST',
       url: '/parks',
       data: this.createForm
     }).then(response => {
+      // console.log(response.data);
       controller.userParks.unshift(response.data);
-      controller.getUserParks();
+      // controller.getUserParks();
       this.createForm = {};
     }, error => {
       console.log(error);
@@ -87,6 +84,7 @@ app.controller('MainController', ['$http', function($http) {
       url: '/parks/',
     }).then(function(response){
       controller.userParks = response.data;
+
     }, function(){
       console.log('error');
     })
@@ -106,7 +104,6 @@ app.controller('MainController', ['$http', function($http) {
         }
     );
 }
-
 
   //edit user park bug needs fixin'
   this.editUserPark = function(userPark) {
