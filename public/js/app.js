@@ -19,6 +19,7 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfEditFormToShow = null;
   this.savedMessage = ''
   this.indexOfSavedMessage = null;
+  this.indexOfCreateMessage = null;
   this.yes = 'yes';
   this.no = 'no';
 
@@ -63,6 +64,7 @@ app.controller('MainController', ['$http', function($http) {
   }
   //Create User Park
   this.createUserPark = function(){
+    this.parkCreatedMessage = 'Park Created';
     $http({
       method: 'POST',
       url: '/parks',
