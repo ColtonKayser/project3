@@ -20,8 +20,8 @@ app.controller('MainController', ['$http', function($http) {
   this.savedMessage = ''
   this.indexOfSavedMessage = null;
   this.indexOfCreateMessage = null;
-  this.yes = 'yes';
-  this.no = 'no';
+  this.yes = 'Yes';
+  this.no = 'No';
 
   // === PARTIALS === //
   this.includePath = 'partials/searchparks.html';
